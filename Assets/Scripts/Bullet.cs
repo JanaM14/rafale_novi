@@ -11,9 +11,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,life);
     }
     void OnCollisionEnter(Collision collision){
+        if (collision.rigidbody)
+        {
+            collision.rigidbody.useGravity = true;
+        }
         Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
         FindObjectOfType<AudioManager>().Play("Explosion");
     }
 }
