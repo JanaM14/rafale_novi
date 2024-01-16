@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Teren1.unity
+    guid: 766092f5dfbeb554797b35beeee4f708
+  - enabled: 0
+    path: Assets/Scenes/MeteScene.unity
+    guid: 266b51a21da0e8e459c5d9174b045698
+  - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: ca5235abeb214284ca8e1eefe5ee40c6
   m_configObjects: {}

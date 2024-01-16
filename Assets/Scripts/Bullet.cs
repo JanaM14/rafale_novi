@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,life);
     }
     void OnCollisionEnter(Collision collision){
-        if (collision.rigidbody)
+        if (collision.rigidbody && !collision.gameObject.CompareTag("Rafale"))
         {
             collision.rigidbody.useGravity = true;
         }
