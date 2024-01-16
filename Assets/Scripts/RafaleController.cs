@@ -107,7 +107,7 @@ public class RafaleController : MonoBehaviour
         transform.position += transform.forward * FlySpeed * Time.deltaTime;
 
         FindObjectOfType<AltimeterConverter>().Altimeter();
-        currentMSL = transform.position.y;
+        currentMSL = transform.position.y- 87;
 
         SpeedConverter.ShowSpeed(FlySpeed, 0, maxSpeed);
 
