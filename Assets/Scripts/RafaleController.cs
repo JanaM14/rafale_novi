@@ -50,6 +50,7 @@ public class RafaleController : MonoBehaviour
 
     void Update()
     {
+         
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -72,18 +73,7 @@ public class RafaleController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Bullet");
         }
 
-        // Speed control
-        // if (Input.GetKey(KeyCode.X))  // Speed up (change to your desired key)
-        // {
-        //     FlySpeed += acceleration * Time.deltaTime;
-        //     FlySpeed = Mathf.Clamp(FlySpeed, 0, maxSpeed);
-        //     UpdateFuel();
-        // }
-        // else if (Input.GetKey(KeyCode.C))  // Slow down (change to your desired key)
-        // {
-        //     FlySpeed -= deceleration * Time.deltaTime;
-        //     FlySpeed = Mathf.Clamp(FlySpeed, 0, maxSpeed);
-        // }
+      
         if (Input.GetKey(KeyCode.X))  // ubrzaj
         {
             if (FlySpeed < maxInitialSpeed)
@@ -107,10 +97,13 @@ public class RafaleController : MonoBehaviour
         transform.position += transform.forward * FlySpeed * Time.deltaTime;
 
         FindObjectOfType<AltimeterConverter>().Altimeter();
-        currentMSL = transform.position.y- 87;
+        currentMSL = transform.position.y- 86;
 
         SpeedConverter.ShowSpeed(FlySpeed, 0, maxSpeed);
 
         FindObjectOfType<Fuel>().FuelConverter();
+
     }
 }
+
+
