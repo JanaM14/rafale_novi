@@ -6,6 +6,7 @@ public class RafaleCollision : MonoBehaviour
 {
     public RafaleController movement;
    
+    public GameObject explosionPrefab;
 
     void OnCollisionEnter (Collision collisionInfo) {
 
@@ -13,6 +14,8 @@ public class RafaleCollision : MonoBehaviour
         if (movement != null && collisionInfo.collider != null)
         {
             movement.enabled = false;
+            Instantiate(explosionPrefab, collisionInfo.contacts[0].point, Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("Explosion");
             FindObjectOfType<GameManager>().EndGame();
         }
     }

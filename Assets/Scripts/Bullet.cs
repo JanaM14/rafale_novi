@@ -5,17 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float life=3;
-    public GameObject explosionPrefab; // Drag your explosion prefab here in the Unity Editor
-    // Start is called before the first frame update
+    public GameObject explosionPrefab; 
     void Awake(){
         Destroy(gameObject,life);
     }
     void OnCollisionEnter(Collision collision){
-        if (collision.rigidbody && !collision.gameObject.CompareTag("Rafale"))
+        if (collision.rigidbody && !collision.gameObject.CompareTag("Player"))
         {
             collision.rigidbody.useGravity = true;
+            Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("Explosion");
         }
-        Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
-        FindObjectOfType<AudioManager>().Play("Explosion");
+        
     }
 }
